@@ -1,5 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+export enum SeedType {
+  FLOWER = 'flower',
+  FRUIT = 'fruit',
+  LEAF = 'leaf',
+  ROOT = 'root',
+  VEG = 'vegetable',
+}
+
 @Entity()
 export class Seed {
   @PrimaryGeneratedColumn()
@@ -8,8 +16,11 @@ export class Seed {
   @Column()
   name: string;
 
-  @Column()
-  type: string;
+  @Column({
+    type: 'enum',
+    enum: SeedType,
+  })
+  type: SeedType;
 
   @Column()
   producer: string;
@@ -20,17 +31,8 @@ export class Seed {
   @Column()
   availability: boolean;
 
-  @Column('jsonb')
-  qualityMetrics: { moisture: number; germinationRate: number };
-
-  @Column()
-  price: number;
-
   @Column({ type: 'date' })
-  releaseDate: Date;
-
-  @Column({ type: 'date' })
-  expiryDate: Date;
+  harvestDate: Date;
 
   @Column('simple-array')
   growingConditions: string[];
