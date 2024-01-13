@@ -1,26 +1,55 @@
-import { Injectable } from '@nestjs/common';
+import { Seed } from './entities/seed.entity';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateSeedDto } from './dto/create-seed.dto';
 import { UpdateSeedDto } from './dto/update-seed.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class SeedService {
-  create(createSeedDto: CreateSeedDto) {
-    return 'This action adds a new seed';
+  constructor(
+    @InjectRepository(Seed)
+    private seedRepository: Repository<Seed>,
+  ) {}
+
+  async create(createSeedDto: CreateSeedDto): Promise<Seed> {
+    const newSeed = this.seedRepository.create(createSeedDto);
+    return await this.seedRepository.save(newSeed);
   }
 
-  findAll() {
-    return `This action returns all seed`;
+  async findAll(): Promise<Seed[]> {
+    return await this.seedRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} seed`;
+  async findOne(seedId: number): Promise<Seed> {
+    const seed = await this.seedRepository.findOne({
+      where: { id: seedId },
+    });
+    if (!seed) {
+      throw new NotFoundException(`Seed with ID ${seedId} not found`);
+    }
+    return seed;
   }
 
-  update(id: number, updateSeedDto: UpdateSeedDto) {
-    return `This action updates a #${id} seed`;
+  async update(seedId: number, updateSeedDto: UpdateSeedDto): Promise<Seed> {
+    const seed = await this.seedRepository.findOne({
+      where: { id: seedId },
+    });
+    if (!seed) {
+      throw new NotFoundException(`Seed with ID ${seedId} not found`);
+    }
+    Object.assign(seed, updateSeedDto);
+
+    return await this.seedRepository.save(seed);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} seed`;
+  async remove(seedId: number): Promise<void> {
+    const seed = await this.seedRepository.findOne({
+      where: { id: seedId },
+    });
+    if (!seed) {
+      throw new NotFoundException(`Seed with ID ${seedId} not found`);
+    }
+    await this.seedRepository.remove(seed);
   }
 }
