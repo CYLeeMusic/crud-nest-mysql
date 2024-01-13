@@ -40,6 +40,7 @@ const RAW_RUNTIME_STATE =
           ["@types/supertest", "npm:2.0.16"],\
           ["@typescript-eslint/eslint-plugin", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:6.17.0"],\
           ["@typescript-eslint/parser", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:6.17.0"],\
+          ["class-validator", "npm:0.14.1"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-prettier", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:5.1.2"],\
@@ -1486,7 +1487,7 @@ const RAW_RUNTIME_STATE =
           ["@types/reflect-metadata", null],\
           ["@types/rxjs", null],\
           ["class-transformer", null],\
-          ["class-validator", null],\
+          ["class-validator", "npm:0.14.1"],\
           ["iterare", "npm:1.2.1"],\
           ["reflect-metadata", "npm:0.1.14"],\
           ["rxjs", "npm:7.8.1"],\
@@ -1508,14 +1509,14 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["@nestjs/core", [\
       ["npm:10.3.0", {\
-        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/@nestjs-core-npm-10.3.0-a7ea43c011-10c0.zip/node_modules/@nestjs/core/",\
+        "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-e68a15def1/node_modules/@nestjs/core/",\
         "packageDependencies": [\
           ["@nestjs/core", "npm:10.3.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
       ["virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:10.3.0", {\
-        "packageLocation": "./.yarn/__virtual__/@nestjs-core-virtual-e68a15def1/5/AppData/Local/Yarn/Berry/cache/@nestjs-core-npm-10.3.0-a7ea43c011-10c0.zip/node_modules/@nestjs/core/",\
+        "packageLocation": "./.yarn/unplugged/@nestjs-core-virtual-e68a15def1/node_modules/@nestjs/core/",\
         "packageDependencies": [\
           ["@nestjs/core", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:10.3.0"],\
           ["@nestjs/common", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:10.3.0"],\
@@ -1572,7 +1573,7 @@ const RAW_RUNTIME_STATE =
           ["@types/nestjs__common", null],\
           ["@types/reflect-metadata", null],\
           ["class-transformer", null],\
-          ["class-validator", null],\
+          ["class-validator", "npm:0.14.1"],\
           ["reflect-metadata", "npm:0.1.14"]\
         ],\
         "packagePeers": [\
@@ -2209,6 +2210,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/supertest", "npm:2.0.16"],\
           ["@types/superagent", "npm:8.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/validator", [\
+      ["npm:13.11.8", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/@types-validator-npm-13.11.8-584a0a800c-10c0.zip/node_modules/@types/validator/",\
+        "packageDependencies": [\
+          ["@types/validator", "npm:13.11.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3475,6 +3485,18 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["class-validator", [\
+      ["npm:0.14.1", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/class-validator-npm-0.14.1-f0ce3b1130-10c0.zip/node_modules/class-validator/",\
+        "packageDependencies": [\
+          ["class-validator", "npm:0.14.1"],\
+          ["@types/validator", "npm:13.11.8"],\
+          ["libphonenumber-js", "npm:1.10.53"],\
+          ["validator", "npm:13.11.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["clean-stack", [\
       ["npm:2.2.0", {\
         "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/clean-stack-npm-2.2.0-a8ce435a5c-10c0.zip/node_modules/clean-stack/",\
@@ -3858,6 +3880,7 @@ const RAW_RUNTIME_STATE =
           ["@types/supertest", "npm:2.0.16"],\
           ["@typescript-eslint/eslint-plugin", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:6.17.0"],\
           ["@typescript-eslint/parser", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:6.17.0"],\
+          ["class-validator", "npm:0.14.1"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-prettier", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:86ea4f837bd8124504e9afb1ffe7c3644491f289635baba5ce370b8624e806f333a6b2a98223a29eb9fcc64d484047179b2af23fe992cf24d075c56d72f9a483#npm:5.1.2"],\
@@ -6362,6 +6385,15 @@ const RAW_RUNTIME_STATE =
           ["levn", "npm:0.4.1"],\
           ["prelude-ls", "npm:1.2.1"],\
           ["type-check", "npm:0.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["libphonenumber-js", [\
+      ["npm:1.10.53", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/libphonenumber-js-npm-1.10.53-a5c40a294d-10c0.zip/node_modules/libphonenumber-js/",\
+        "packageDependencies": [\
+          ["libphonenumber-js", "npm:1.10.53"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9000,6 +9032,15 @@ const RAW_RUNTIME_STATE =
           ["@jridgewell/trace-mapping", "npm:0.3.20"],\
           ["@types/istanbul-lib-coverage", "npm:2.0.6"],\
           ["convert-source-map", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["validator", [\
+      ["npm:13.11.0", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/validator-npm-13.11.0-f0143e2784-10c0.zip/node_modules/validator/",\
+        "packageDependencies": [\
+          ["validator", "npm:13.11.0"]\
         ],\
         "linkType": "HARD"\
       }]\
