@@ -5,6 +5,7 @@ import { Seed, SeedType } from './entities/seed.entity';
 import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { NotFoundException } from '@nestjs/common';
+import { UpdateSeedDto } from './dto/update-seed.dto';
 
 describe('SeedService', () => {
   let seedService: SeedService;
@@ -119,6 +120,38 @@ describe('SeedService', () => {
           where: { id: nonExistingSeedId },
         });
       }
+    });
+  });
+
+  describe('update', () => {
+    it('should update and return updated seed', async () => {
+      const seedIdToUpdate = 2;
+      const updateSeedDTO: UpdateSeedDto = {
+        name: 'updated test seed',
+        type: SeedType.FLOWER,
+        availability: false,
+      };
+
+      const seedToUpdate: Seed = mockSeedData.find(
+        (seed) => seed.id === seedIdToUpdate,
+      );
+
+      jest.spyOn(seedRepository, 'findOne').mockResolvedValue(seedToUpdate);
+      jest
+        .spyOn(seedRepository, 'save')
+        .mockResolvedValue({ ...seedToUpdate, ...updateSeedDTO });
+
+      const result = await seedService.update(seedIdToUpdate, updateSeedDTO);
+
+      expect(result).toMatchObject({
+        name: 'updated test seed',
+        type: SeedType.FLOWER,
+        availability: false,
+      });
+
+      expect(seedRepository.findOne).toHaveBeenCalledWith({
+        where: { id: seedIdToUpdate },
+      });
     });
   });
 });
