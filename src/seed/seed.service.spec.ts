@@ -154,4 +154,44 @@ describe('SeedService', () => {
       });
     });
   });
+
+  describe('delete', () => {
+    it('should delete a seed data', async () => {
+      const seedIdToDelete = 1;
+      jest
+        .spyOn(seedRepository, 'findOne')
+        .mockResolvedValue(
+          mockSeedData.find((seed) => seed.id === seedIdToDelete),
+        );
+
+      jest.spyOn(seedRepository, 'remove').mockResolvedValue(undefined);
+
+      await seedService.remove(seedIdToDelete);
+
+      expect(seedRepository.findOne).toHaveBeenCalledWith({
+        where: { id: seedIdToDelete },
+      });
+
+      expect(seedRepository.remove).toHaveBeenCalledWith(
+        mockSeedData.find((seed) => seed.id === seedIdToDelete),
+      );
+    });
+
+    it('should throw NotFoundException if the seed does not exist', async () => {
+      const nonExistingSeedId = 999;
+
+      jest.spyOn(seedRepository, 'findOne').mockResolvedValue(null);
+
+      jest.spyOn(seedRepository, 'remove');
+
+      await expect(seedService.remove(nonExistingSeedId)).rejects.toThrow(
+        `Seed with ID ${nonExistingSeedId} not found`,
+      );
+
+      expect(seedRepository.findOne).toHaveBeenCalledWith({
+        where: { id: nonExistingSeedId },
+      });
+      expect(seedRepository.remove).not.toHaveBeenCalled();
+    });
+  });
 });
